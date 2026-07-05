@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cosmos — Galaxy Explorer</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Raleway:wght@300;400&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <canvas id="starfield"></canvas>
+  <canvas id="nebula"></canvas>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-trail" id="cursorTrail"></div>
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-logo">✦ COSMOS</div>
+    <div class="nav-coords" id="coords">0°N 0°E</div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="orbit-ring ring1"></div>
+      <div class="orbit-ring ring2"></div>
+      <div class="orbit-ring ring3"></div>
+      <div class="planet" id="planet">
+        <div class="planet-surface"></div>
+        <div class="planet-atmosphere"></div>
+        <div class="planet-shine"></div>
+        <div class="moon" id="moon"></div>
+      </div>
+    </div>
+    <div class="hero-text">
+      <div class="hero-eyebrow">DEEP SPACE EXPLORATION</div>
+      <h1 class="hero-title">
+        <span>Acme</span>
+        <span class="glow-text">Engineering College</span>
+      </h1>
+      <p class="hero-sub">Where the universe begins and imagination has no horizon.</p>
+      <div class="scroll-hint">
+        <span>Scroll to explore</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats bar -->
+  <div class="stats-bar">
+    <div class="stat"><span class="stat-val" data-val="2000000000000">0</span><span class="stat-label">Galaxies in observable universe</span></div>
+    <div class="stat-div"></div>
+    <div class="stat"><span class="stat-val" data-val="400000000000">0</span><span class="stat-label">Stars in the Milky Way</span></div>
+    <div class="stat-div"></div>
+    <div class="stat"><span class="stat-val" data-val="13800000000">0</span><span class="stat-label">Years since the Big Bang</span></div>
+  </div>
+
+  <!-- Planets section -->
+  <section class="planets-section">
+    <div class="section-tag">// SOLAR SYSTEM</div>
+    <h2>Our Celestial Neighbours</h2>
+    <div class="planets-scroll">
+
+      <div class="planet-card" style="--hue:30; --size:90px;">
+        <div class="pc-planet mercury"></div>
+        <div class="pc-rings"></div>
+        <div class="pc-info">
+          <div class="pc-name">Mercury</div>
+          <div class="pc-dist">57.9M km from Sun</div>
+          <div class="pc-fact">Fastest planet — one year = 88 Earth days</div>
+        </div>
+      </div>
+
+      <div class="planet-card" style="--hue:45; --size:110px;">
+        <div class="pc-planet venus"></div>
+        <div class="pc-info">
+          <div class="pc-name">Venus</div>
+          <div class="pc-dist">108.2M km from Sun</div>
+          <div class="pc-fact">Hottest planet at 465°C — hotter than Mercury</div>
+        </div>
+      </div>
+
+      <div class="planet-card" style="--hue:200; --size:120px;">
+        <div class="pc-planet earth"></div>
+        <div class="pc-info">
+          <div class="pc-name">Earth</div>
+          <div class="pc-dist">149.6M km from Sun</div>
+          <div class="pc-fact">The only known planet harbouring life</div>
+        </div>
+      </div>
+
+      <div class="planet-card" style="--hue:15; --size:100px;">
+        <div class="pc-planet mars"></div>
+        <div class="pc-info">
+          <div class="pc-name">Mars</div>
+          <div class="pc-dist">227.9M km from Sun</div>
+          <div class="pc-fact">Home to Olympus Mons — tallest volcano in the solar system</div>
+        </div>
+      </div>
+
+      <div class="planet-card" style="--hue:35; --size:170px;">
+        <div class="pc-planet jupiter"></div>
+        <div class="pc-info">
+          <div class="pc-name">Jupiter</div>
+          <div class="pc-dist">778.5M km from Sun</div>
+          <div class="pc-fact">The Great Red Spot is a storm older than 350 years</div>
+        </div>
+      </div>
+
+      <div class="planet-card" style="--hue:50; --size:155px; --ring:1;">
+        <div class="pc-planet saturn"></div>
+        <div class="saturn-rings">
+          <div class="sring s1"></div>
+          <div class="sring s2"></div>
+          <div class="sring s3"></div>
+        </div>
+        <div class="pc-info">
+          <div class="pc-name">Saturn</div>
+          <div class="pc-dist">1.43B km from Sun</div>
+          <div class="pc-fact">Its rings are made of ice and rock, spanning 282,000 km</div>
+        </div>
+      </div>
+
+      <div class="planet-card" style="--hue:185; --size:130px;">
+        <div class="pc-planet uranus"></div>
+        <div class="pc-info">
+          <div class="pc-name">Uranus</div>
+          <div class="pc-dist">2.87B km from Sun</div>
+          <div class="pc-fact">Rotates on its side — axial tilt of 98°</div>
+        </div>
+      </div>
+
+      <div class="planet-card" style="--hue:220; --size:125px;">
+        <div class="pc-planet neptune"></div>
+        <div class="pc-info">
+          <div class="pc-name">Neptune</div>
+          <div class="pc-dist">4.5B km from Sun</div>
+          <div class="pc-fact">Winds up to 2,100 km/h — the fastest in the solar system</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Nebula section -->
+  <section class="nebula-section">
+    <div class="nebula-visual">
+      <div class="nb-core"></div>
+      <div class="nb-cloud c1"></div>
+      <div class="nb-cloud c2"></div>
+      <div class="nb-cloud c3"></div>
+      <div class="nb-stars"></div>
+    </div>
+    <div class="nebula-text">
+      <div class="section-tag">// STELLAR NURSERIES</div>
+      <h2>Where Stars Are Born</h2>
+      <p>Nebulae are vast clouds of gas and dust — the birthplace of stars. Gravity pulls material together until nuclear fusion ignites, and a new star blazes to life.</p>
+      <div class="nebula-facts">
+        <div class="nb-fact">
+          <div class="nb-fact-num">7,500</div>
+          <div class="nb-fact-label">Light years away — Eagle Nebula</div>
+        </div>
+        <div class="nb-fact">
+          <div class="nb-fact-num">70+</div>
+          <div class="nb-fact-label">Solar masses of gas per nebula</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Black hole section -->
+  <section class="blackhole-section">
+    <div class="bh-wrap">
+      <div class="bh-disk"></div>
+      <div class="bh-accretion a1"></div>
+      <div class="bh-accretion a2"></div>
+      <div class="bh-accretion a3"></div>
+      <div class="bh-core"></div>
+      <div class="bh-jets jet-top"></div>
+      <div class="bh-jets jet-bottom"></div>
+      <div class="bh-lensing"></div>
+    </div>
+    <div class="bh-text">
+      <div class="section-tag">// SINGULARITIES</div>
+      <h2>Event Horizon</h2>
+      <p>Beyond this boundary, nothing — not even light — can escape. A point of infinite density where space and time cease to exist as we know them.</p>
+      <div class="bh-data">
+        <div class="bh-row"><span>Mass of M87*</span><span>6.5 billion ☉</span></div>
+        <div class="bh-row"><span>First imaged</span><span>April 2019</span></div>
+        <div class="bh-row"><span>Distance</span><span>55M light years</span></div>
+        <div class="bh-row"><span>Schwarzschild radius</span><span>19.5B km</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-stars"></div>
+    <div class="footer-content">
+      <div class="footer-logo">✦ COSMOS</div>
+      <p>The universe is under no obligation to make sense to you.</p>
+      <div class="footer-quote">— Neil deGrasse Tyson</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
